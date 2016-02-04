@@ -1,4 +1,5 @@
 package Dancer::Plugin::Common;
+# ABSTRACT: common (base) plugin
 
 use strict;
 use warnings;
@@ -20,8 +21,6 @@ use Try::Tiny;
 use POSIX 'strftime';
 use JSON;
 use Encode;
-
-our $VERSION = '0.9';
 
 my $conf = plugin_setting;
 

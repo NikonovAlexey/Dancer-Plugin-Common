@@ -1,0 +1,7 @@
+.build*
+*.tar.gz
+*.swp
+FAW-uRoles-*
+Dancer-Plugin-Common-*
+Dancer-Plugin-uRBAC-*
+Dancer-Plugin-ImageWork-*

@@ -3,6 +3,7 @@ package Dancer::Plugin::Common;
 
 use strict;
 use warnings;
+use utf8;
 
 use Dancer ':syntax';
 
@@ -139,7 +140,9 @@ sub transliterate {
         'шШ'=>'sh', 'щЩ'=>'shh','ъЪ'=>'',   'ыЫ'=>'y',  'ьЬ'=>'',
         'эЭ'=>'eh', 'юЮ'=>'ju', 'яЯ'=>'ja', ' '=>'_',
     );
-    pop @{([ \map do{$str =~ s|[$_]|$hs{$_}|gi; }, keys %hs ])}, $str;
+    $str = decode("utf8", $str, 1);
+    #pop @{([ \map do{$str =~ s|[$_]|$hs{$_}|gi; }, keys %hs ])}, $str;
+    foreach(keys %hs) { $str =~ s|[$_]|$hs{$_}|gi; }
     
     return $str;
 }
